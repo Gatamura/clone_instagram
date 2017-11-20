@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Finance Your Billings</title>
+		
+		<!-- JQuery -->
+		<script src="js/jquery-2.2.1.js"></script>
+
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+		<!-- incluindo css -->
+		<link href="css/style.css" rel="stylesheet">
+			
+		<!-- Custom styles for this template -->
+		<link href="css/simple-sidebar.css" rel="stylesheet">
+
+		<script>
+		
+		$(document).ready(function(){
+
+			$('#btn_sair').click(function(){
+				window.location.href = '/sair'
+			});
+
+			$('#btn_debitos').click(function(){
+				window.location.href = '/cadastrarDebitos'
+            });
+            
+			$('#btn_dashboard').click(function(){
+				window.location.href = '/dashboard'
+			});
+            
+            $('#btn_creditos').click(function(){
+				window.location.href = '/cadastrarCreditos'
+			});
+		})
+	
+		</script>
+
+	</head>
+
+	<body class="body-dashboard">
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <h1 class="nome-cliente"><%=nome_usuario.toUpperCase()%></h1>
+				<li>
+					<a href="#">Home</a>
+				</li>
+                <li>
+                    <a id="btn_dashboard" href="#">Dashboard</a>    
+                </li>
+                <li>
+                    <a id="btn_debitos" href="#" >Debit Submit</a>
+                </li>
+                <li>
+                    <a id="btn_creditos" href="#">Credit Submit</a>
+                </li>
+
+
+            </ul>
+        </div>
+		<!-- /#sidebar-wrapper -->
+		
+		<!-- Page Content -->
+		<div class="row">
+				<button type="button" class="btn btn-primary col-lg-1 col-xs-1" id="menu-toggle">Menu</button>
+				<div class="col-lg-6 col-xs-6">
+				  <div class="col-lg-12 col-lg-push-10 col-md-2 col-md-push-0 col-sm-2 col-sm-push-0 col-xs-2 col-xs-push-0">
+					<button type="button" class="btn btn-danger pull-right " id="btn_sair">Exit</button>				
+				  </div>
+				</div>
+			</div>
+
+			<div id="page-content-wrapper">
+				<div class="container-fluid">
+					<h1>Finance Control Application</h1>
+                    <h1>Ola, <%=nome_usuario%></h1>
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container">
+                          <h1 class="display-1">Fluid jumbotron</h1>
+                          <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                        </div>
+                    </div>
+
+				</div>
+            </div>
+
+            <form class="form-inline" action="/dashboard" method="POST">
+                    <div class="form-group mx-sm-3">
+                      <label for="nome_debito" class="sr-only">Nome da Conta</label>
+                      <input type="text" name="nome_debito" class="form-control" id="nome_debito" placeholder="Nome da Conta">
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group mx-sm-3">
+                      <label for="data_debito" class="sr-only">Data do Pagamento</label>
+                      <input type="date" name="data_debito" class="form-control" id="data_debito" placeholder="Data do Pagamento">
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group mx-sm-3">
+                      <label for="valor_debito" class="sr-only">Valor do Debito</label>
+                      <input type="number" name="valor_debito" class="form-control" id="valor_debito" placeholder="Valor do Debito">
+                    </div>
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Confirmar Debito</button>
+                  </form>
+   
+             
+
+		
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>

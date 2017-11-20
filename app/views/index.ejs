@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Finance Your Billings</title>
+		
+		<!-- JQuery -->
+		<script src="js/jquery-2.2.1.js"></script>
+
+		<!-- bootstrap - link cdn -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+		<!-- incluindo css -->
+		<link href="css/style.css" rel="stylesheet">
+
+		<script>
+			
+			$(document).ready(function(){
+	
+				$('#btn_cadastro').click(function(){
+					window.location.href = '/cadastrar'
+				});
+
+				
+
+
+	
+			})
+
+
+			
+			</script>
+
+	</head>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="panel panel-default">
+					  <div class="panel-heading">
+						<h3 class="panel-title">Login</h3>
+					 </div>
+	
+					 <%if(validacao.length > 0) { %>
+						
+						<div class="alert alert-danger">
+							<strong>ATENCAO!</strong>
+							<ul>
+								<%for(var i = 0; i< validacao.length; i++){%>
+									<li><%=validacao[i].msg%></li>
+								<%}%>
+							</ul>
+						</div>
+	
+						<% } %>
+	
+					  <div class="panel-body">
+						<form class="form-inline form-entrar" action="/" method="POST">
+						
+							  <div class="form-group">
+								<input class="form-control" placeholder="usuario" id="usuario" autocomplete="off" name="usuario" type="text">
+							</div>
+							<br><br>
+							<div class="form-group">
+								<input class="form-control" placeholder="Password" name="senha" id="senha" type="password" value="">
+							</div>
+							<br><br>
+							<button type="submit" id="login" class="btn btn-success">Get Started</button>
+						
+						  
+						  <hr>
+						<center><h4>Sign Up For Free</h4></center>
+						<button type="button" class="btn btn-info" id="btn_cadastro"> Register </button>
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</html>
+
+
