@@ -1,16 +1,27 @@
 function UsuariosDAO(connection){
     this._connection = connection();
+    
 }
 
 //INSERIR USUARIO
 
 UsuariosDAO.prototype.inserirUsuario = function(usuario){
-    this._connection.open(function(err, mongoclient){
-        mongoclient.collection("usuarios", function(err, collection){
-            collection.insert(usuario);
-            mongoclient.close();
-        });
-    });
+    // console.log(usuario);
+    // this._connection.open(function(err, mongoclient){
+    //     mongoclient.collection("usuarios", function(err, collection){
+    //         collection.insert(usuario);
+    //         mongoclient.close();
+    //     });
+    // });
+    // this._connection.query('insert into usuarios values (null, ?, ?, "teste@teste", ?, "17/02/1996" '),[usuario.nome,usuario.username, usuario.senha], (erro,resposta) => {
+    //     console.log('usuario inserido com sucesso')
+    // }
+
+    // console.log(this._connection)
+
+    this._connection.query('select * from usuarios', (err) => {
+        console.log('teste')
+    })
 }
 
 //AUTENTICA LOGIN

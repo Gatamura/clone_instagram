@@ -1,24 +1,22 @@
-//import mongodb
+//import mysql
 
-var mongo = require('mongodb');
+// var mysql = require('mysql');
+var mysql      = require('mysql');
 
-var connMongoDB = function(){
-    var db = new mongo.Db(
-        'controle_de_pagamentos', // nome da database
-        new mongo.Server(
-            'localhost', // endereco do banco
-            '27017', // porta
-            {}
-        ),
-        {}
-    )
-
-    return db;
+var connectDB = function(){
+    var connection = mysql.createConnection({
+      host     : 'localhost',
+      user     : 'root',
+      password : '',
+      database : 'instagram_clone'
+    });
+    
+    connection.connect();
 
 }
 
 
 //wrapper
 module.exports = function(){
-    return connMongoDB;
+    return connectDB;
 }

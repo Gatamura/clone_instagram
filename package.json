@@ -16,6 +16,7 @@
     "express-session": "^1.15.6",
     "express-validator": "^2.20.8",
     "materialize-css": "^0.100.2",
-    "mongodb": "^2.2.33"
+    "mongodb": "^2.2.33",
+    "mysql": "^2.15.0"
   }
 }
